@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import "./edit.css";
+
+
+import "./Editable.css";
 
 function Editable(props) {
   const [isEditable, setIsEditable] = useState(false);
@@ -34,14 +36,14 @@ function Editable(props) {
           </div>
         </form>
       ) : (
-        <button
+        <p
           className={`editable_display ${
             props.displayClass ? props.displayClass : ""
           }`}
           onClick={() => setIsEditable(true)}
         >
-          хуй
-        </button>
+          {props.text}
+        </p>
       )}
     </div>
   );
