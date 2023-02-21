@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 
-import "./Editable.css";
+import "./addCard.css";
 
-function Editable(props) {
+function AddCard(props) {
   const [isEditable, setIsEditable] = useState(false);
   const [inputText, setInputText] = useState(props.defaultValue || "");
-
+  console.log(props)
   const submission = (e) => {
     e.preventDefault();
     if (inputText && props.onSubmit) {
@@ -28,11 +28,9 @@ function Editable(props) {
             value={inputText}
             placeholder={props.placeholder || props.text}
             onChange={(event) => setInputText(event.target.value)}
-            autoFocus
           />
           <div className="editable_edit_footer">
             <button type="submit">{props.buttonText || "Add"}</button>
-            <button onClick={() => setIsEditable(false)} className="closeIcon" />
           </div>
         </form>
       ) : (
@@ -49,4 +47,4 @@ function Editable(props) {
   );
 }
 
-export default Editable;
+export default AddCard;

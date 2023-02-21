@@ -1,14 +1,15 @@
 import React from "react";
 
 import Card from "../Card/Card";
-import Editable from "../Editabled/Editable";
+import AddCard from "../addCard/addCard";
 
 import "./Board.css";
 
 function Board(props) {
-
   return (
     <div className="board">
+{console.log(props.board.id)}
+
       <div className="board_header">
         <p className="board_header_title">
           {props.board?.title}
@@ -21,17 +22,23 @@ function Board(props) {
           <Card
             key={item.id}
             card={item}
-            boardId={props.board.id}
+            boardId={props.board.id
+            }
           />
         ))}
-        <Editable
+       {props.board.id === 1 ?
+       <AddCard
           text="+ Add Card"
           placeholder="Enter Card Title"
           displayClass="board_add-card"
           editClass="board_add-card_edit"
           onSubmit={(value) => props.addCard(props.board?.id, value)}
         />
-      </div>
+        :
+        <button>хуй</button>
+      } 
+        
+        </div>
     </div>
   );
 }
