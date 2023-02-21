@@ -2,24 +2,14 @@ import React, { Component } from "react";
 
 class Card extends Component {
 
-    handleKeyDown(e) {
-        e.target.style.height = "inherit";
-        e.target.style.height = `${e.target.scrollHeight}px`;
-    }
+    
 
-    handleDragStart(e, card, parent) {
-        card.previousParent = parent;
-        e.dataTransfer.setData("text/plain", JSON.stringify(card));
-    }
-
-    render() {
+        render() {
         let card = { id: this.props.id, title: this.props.title };
 
         return (
             <div
                 className="card"
-                draggable="true"
-                onDragStart={(e) => this.handleDragStart(e, card, this.props.parent)}
             >
                 <textarea
                     draggable="false"

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Column from "../Column/Column";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import Editable from "../Card/edit"
 import "./Board.css"
 
 class Board extends Component {
@@ -36,10 +37,15 @@ class Board extends Component {
     }
 
     onClick = (type) => {
-        const newCard = {};
-        newCard.id = new Date().getTime();
-        this.setState({ [type]: this.state[type].concat(newCard) });
+        const newCard = {
+        id: new Date().getTime(),
+        };
+        this.state[type].push(newCard)
+        // this.setState(this.state[type].push(newCard))
+        this.setState(this.state[type]);
+        console.log(this.state[type])
     };
+    
 
     onCardBlur = (event, card, parent) => {
         let idToReplace;
@@ -53,6 +59,7 @@ class Board extends Component {
                 idToReplace = index;
             }
         });
+        console.log(this.state[parent])
 
         const cloneState = Object.assign(this.state[parent]);
         cloneState[idToReplace] = card;
@@ -60,20 +67,7 @@ class Board extends Component {
         this.setState({ [parent]: cloneState });
     };
 
-    onHandleDrop = (e, cardHeader) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const data = JSON.parse(e.dataTransfer.getData("text"));
-        console.log("dropped", data, cardHeader);
-        if (data.previousParent !== cardHeader) {
-            this.setState({
-                [data.previousParent]: this.state[data.previousParent].filter(
-                    (item) => item.id !== data.id
-                ),
-            });
-            this.setState({ [cardHeader]: this.state[cardHeader].concat(data) });
-        }
-    };
+   
 
     componentDidMount() {
         this.localState = JSON.parse(localStorage.getItem("state"));
@@ -90,34 +84,37 @@ class Board extends Component {
         return (
             <div className="board">
                 <Header/>
+                
                 <Column
                     name={this.state.columns[0]}
                     onHandleDrop={this.onHandleDrop}
                     cards={this.state.backlog}
-                    onClick={() => this.onClick(this.state.order[0])}
+                    onClick={() => this.onClick(this.state.columns[0])}
                     onCardBlur={this.onCardBlur}
                 ></Column>
+                <Editable/>
                 <Column
                     name={this.state.columns[1]}
                     onHandleDrop={this.onHandleDrop}
                     cards={this.state.ready}
-                    onClick={() => this.onClick(this.state.order[1])}
+                    onClick={() => this.onClick(this.state.columns[1])}
                     onCardBlur={this.onCardBlur}
                 ></Column>
                 <Column
                     name={this.state.columns[2]}
                     onHandleDrop={this.onHandleDrop}
                     cards={this.state["in progress"]}
-                    onClick={() => this.onClick(this.state.order[2])}
+                    onClick={() => this.onClick(this.state.columns[2])}
                     onCardBlur={this.onCardBlur}
                 ></Column>
                 <Column
                     name={this.state.columns[3]}
                     onHandleDrop={this.onHandleDrop}
                     cards={this.state.finished}
-                    onClick={() => this.onClick(this.state.order[3])}
+                    onClick={() => this.onClick(this.state.columns[3])}
                     onCardBlur={this.onCardBlur}
                 ></Column>
+                
                 <Footer backlog={this.state.backlog} finished={this.state.finished} />
             </div>
         );

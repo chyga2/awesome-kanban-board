@@ -20,9 +20,7 @@ class Column extends Component {
     render() {
         return (
             <div
-                className="column drag-and-drop"
-                onDrop={(e) => this.props.onHandleDrop(e, this.props.name)}
-                onDragOver={(e) => this.handleDragOver(e)}
+                
             >
                 <h4 className={[this.props.cardHeader, "column__header"].join(" ")}>
                     {this.capitalizeFirstLetter(this.props.name)}
