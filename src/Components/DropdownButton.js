@@ -14,7 +14,7 @@ function DropdownButton({buttonText, options, onSelect, id}) {
 
     return (
         <div className="board_add-card">
-            <select className='editable_display ' onClick={toggleDropdown}>{buttonText}</select>
+            <button className='editable_display ' onClick={toggleDropdown}>{buttonText}</button>
             {isOpen && (
                 <ul className="dropdown-menu ">
                     {options.map((option, id) => (
