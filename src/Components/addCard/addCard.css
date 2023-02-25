@@ -4,6 +4,7 @@
 
 .editable_display {
   padding: 6px 12px;
+  border: none;
   border-radius: 3px;
   background-color: #eee;
   color: #000;
@@ -13,7 +14,8 @@
 }
 
 .editable_display:hover {
-  background-color: #ddd;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
 }
 
 .editable_edit {
@@ -23,11 +25,10 @@
 }
 
 .editable_edit input {
-  border: 2px solid #0079bf;
+  border: none;
   border-radius: 5px;
   outline: none;
   font-size: 1rem;
-  padding: 10px;
 }
 
 .editable_edit_footer {
@@ -38,24 +39,19 @@
 
 .editable_edit_footer button {
   cursor: pointer;
+  border: none;
   border-radius: 5px;
   outline: none;
   background-color: #0079bf;
   color: #fff;
-  border: none;
   transition: 100ms ease;
   padding: 10px;
 }
 .editable_edit_footer button:hover {
-  background-color: #046daa;
+  background-color: #0079bf;
 }
 
 .editable_edit_footer button:active {
   transform: translateY(2px);
 }
 
-.editable_edit_footer .closeIcon {
-  cursor: pointer;
-  height: 24px;
-  width: 24px;
-}

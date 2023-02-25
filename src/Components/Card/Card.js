@@ -1,11 +1,11 @@
 import "./Card.css";
 
 function Card(props) {
-    const {id, title} = props.card;
+    const {title} = props.card;
     return (
-            <div className="card_title">
-                <p>{title}</p>
-            </div>
+        <div className="card_title">
+            <p className="card_back">{title}</p>
+        </div>
     );
 }
 

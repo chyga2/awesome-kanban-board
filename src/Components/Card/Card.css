@@ -69,11 +69,6 @@
   align-items: center;
 }
 
-.card_footer_icon {
-  height: 13px;
-  width: 13px;
-}
-
 .card_footer_user {
   border-radius: 50%;
   height: 28px;
@@ -82,4 +77,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.card_back{
+  background-color: #ffff;
+  padding: 5px;
+  border-radius: 10px;
+  text-decoration: none;
 }

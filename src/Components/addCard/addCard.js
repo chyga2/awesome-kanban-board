@@ -26,8 +26,9 @@ function AddCard(props) {
                         placeholder={props.placeholder || props.text}
                         onChange={(event) => setInputText(event.target.value)}
                     />
+                    <hr></hr>
                     <div className="editable_edit_footer">
-                        <button type="submit">{props.buttonText || "Add"}</button>
+                        <button type="submit">{props.buttonText || "Submit"}</button>
                     </div>
                 </form>
             ) : (

@@ -11,13 +11,14 @@ function DropdownButton({buttonText, options, onSelect, id}) {
         onSelect(selectedCard, id);
         setIsOpen(false);
     }
+
     return (
-        <div className="dropdown-button-container">
-            <button onClick={toggleDropdown}>{buttonText}</button>
+        <div className="board_add-card">
+            <select className='editable_display ' onClick={toggleDropdown}>{buttonText}</select>
             {isOpen && (
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menu ">
                     {options.map((option, id) => (
-                        <li key={id} onClick={() => handleSelect(option, id)}>{option}</li>
+                        <li className='card_drop_li' key={id} onClick={() => handleSelect(option, id)}>{option}</li>
                     ))}
                 </ul>
             )}
