@@ -11,7 +11,6 @@
   cursor: pointer;
   width: fit-content;
   transition: 200ms;
-  margin-bottom: 5px;
 }
 
 .editable_display:hover {

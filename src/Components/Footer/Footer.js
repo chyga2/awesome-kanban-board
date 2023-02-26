@@ -3,7 +3,7 @@ import './Footer.css'
 function Footer(props) {
 
     return (
-        <div>
+        <div className="container">
             <div className="app_footer">
                 <p className="marg_curent">Active tasks: {props.active}</p>
                 <p className="marg_curent">Finished tasks: {props.finished}</p>

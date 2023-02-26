@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Board from "../Board/Board";
 import "./Index.css";
-import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 function Index() {
@@ -9,32 +8,32 @@ function Index() {
         JSON.parse(localStorage.getItem("kanban")) || [{
             id: 1,
             title: 'Backlog',
-            cards: [{id: 1, title: "Login page - performance issues"},
-                {id: 2, title: "Spring bugfix"},]
+            cards: [{id: 1, title: "Login page - performance issues", description: "This task has no description"},
+                {id: 2, title: "Spring bugfix", description: "This task has no description"},]
         }, {
             id: 2,
             title: 'Ready',
-            cards: [{id: 3, title: "Shop page - performance issues"},
-                {id: 4, title: "Checkout bugfix"},
-                {id: 5, title: "Shop bug1"},
-                {id: 6, title: "Shop bug2"},
-                {id: 7, title: "Shop bug3"},
-                {id: 8, title: "Shop bug4"},
-                {id: 9, title: "Shop bug5"},
-                {id: 10, title: "Shop bug6"},
-                {id: 11, title: "Shop page - performance issues"}]
+            cards: [{id: 3, title: "Shop page - performance issues", description: "This task has no description"},
+                {id: 4, title: "Checkout bugfix", description: "This task has no description"},
+                {id: 5, title: "Shop bug1", description: "This task has no description"},
+                {id: 6, title: "Shop bug2", description: "This task has no description"},
+                {id: 7, title: "Shop bug3", description: "This task has no description"},
+                {id: 8, title: "Shop bug4", description: "This task has no description"},
+                {id: 9, title: "Shop bug5", description: "This task has no description"},
+                {id: 10, title: "Shop bug6", description: "This task has no description"},
+                {id: 11, title: "Shop page - performance issues", description: "This task has no description"}]
         },
             {
                 id: 3,
                 title: 'In Progress',
-                cards: [{id: 12, title: "User page - performance issues"},
-                    {id: 13, title: "Auth bugfix"}]
+                cards: [{id: 12, title: "User page - performance issues", description: "This task has no description"},
+                    {id: 13, title: "Auth bugfix", description: "This task has no description"}]
             },
             {
                 id: 4,
                 title: 'Finished',
-                cards: [{id: 14, title: "Main page - performance issues"},
-                    {id: 15, title: "Main page bugfix"},]
+                cards: [{id: 14, title: "Main page - performance issues", description: "This task has no description"},
+                    {id: 15, title: "Main page bugfix", description: "This task has no description"},]
             },
         ]
     );
@@ -69,29 +68,29 @@ function Index() {
     useEffect(() => {
         localStorage.setItem("kanban", JSON.stringify(boards));
     }, [boards]);
-
     return (
-        <div className="app">
-            <Header/>
-            <div className="app_boards_container">
-                <div className="app_boards">
-                    {boards.map((item) => (
-                        <Board
-                            id={item.id}
-                            key={item.id}
-                            board={item}
-                            addCard={addCardHandler}
-                            moveCard={moveCardHandler}
-                            prevBoardCards={boards[item.id - 2]?.cards}
-                        />
-                    ))}
+        <div className="container">
+            <div className="app">
+                <div className="app_boards_container">
+                    <div className="app_boards">
+                        {boards.map((item) => (
+                            <Board
+                                id={item.id}
+                                key={item.id}
+                                board={item}
+                                addCard={addCardHandler}
+                                moveCard={moveCardHandler}
+                                prevBoardCards={boards[item.id - 2]?.cards}
+                            />
+                        ))}
+                    </div>
+                    <Footer
+                        active={boards[0].cards.length}
+                        finished={boards[3].cards.length}
+                    />
                 </div>
             </div>
-            <Footer
-                active={boards[0].cards.length}
-                finished={boards[3].cards.length}
-            />
-        </div>
+         </div>
     );
 }
 

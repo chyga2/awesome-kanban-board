@@ -1,0 +1,24 @@
+.CardPage {
+    padding: 26px;
+    background: #087cbc;
+}
+
+.description-area {
+    height: 550px;
+    border-radius: 5px;
+    background: white;
+    padding: 22px;
+
+    font-size: 18px;
+    color: black;
+}
+
+textarea {
+    font-family: Roboto;
+    font-size: 18px;
+    border: none;
+    margin-top: 35px;
+    width: 621px;
+    height: 136px;
+
+}

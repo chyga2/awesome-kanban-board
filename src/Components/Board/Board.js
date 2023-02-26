@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Card from "../Card/Card";
 import AddCard from "../addCard/addCard";
 import "./Board.css";
@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 function Board(props) {
     return (
         <div className="b">
-            <div className="board">            
+            <div className="board">
                 <div className="board_cards custom-scroll">
                     <div className="board_header">
                         <p className="board_header_title ">
@@ -16,12 +16,15 @@ function Board(props) {
                         </p>
                     </div>
                     {props.board?.cards?.map((item) => (
-                        <Link className="a" to={`/${item.id}`} key={item.id} state={{title: item.title}}>
+                        <Link className="a"
+                              to={`/${item.id}`}
+                              key={item.id}
+                              state={{item: item}}
+                    >
                             <Card
                                 key={item.id}
                                 card={item}
-                                boardId={props.board.id
-                                }
+                                boardId={props.board.id}
                             />
                         </Link>
                     ))}
@@ -42,7 +45,7 @@ function Board(props) {
                             />
                         )}
                 </div>
-            </div>    
+            </div>
         </div>
     );
 }

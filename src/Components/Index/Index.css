@@ -18,6 +18,9 @@
 }
 
 .app_nav {
+  height: 58px;
+  display: flex;
+  font-size: 28px;
   padding: 30px;
   box-shadow: 0 1px 20px rgba(56, 40, 40, 0.05);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -25,8 +28,8 @@
   color: #fff;
   top: 0;
   background-color: #0067a3;
-  height: auto;;
- 
+  height: auto;
+
 }
 
 .app_boards_container {
@@ -54,7 +57,7 @@
   color: #000;
   border-radius: 10px;
   box-shadow: 1px 1px 0 1px rgba(0, 0, 0, 0.12);
-  
+
   text-align: center;
 }
 .app_boards_add-board_edit {
@@ -66,8 +69,7 @@
   background-color: #0067a3;
   color: #fff;
   display: flex;
-  /* max-height: fit-content; */
-  height: auto;
+  max-height: fit-content;
 }
 
 .card_drop{
@@ -78,7 +80,7 @@
 }
 .card_drop_li{
   padding: 6px 12px;
-  border-radius: 2px;
+  border-radius: 3px;
   background-color: #fff;
   color: #000;
   cursor: pointer;
@@ -86,5 +88,18 @@
 }
 .card_drop_li:hover{
   background-color: #ebecf0;
-  border-radius: 2px;
+  border-radius: 3px;
 }
+.card_drop_sel{
+  margin-bottom: 5px;
+  padding: 6px 12px;
+  border-radius: 3px;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: 200ms;;
+}
+.marg_sel{
+  margin-left: 12rem;
+}
+
